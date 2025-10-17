@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina Expendedora de Productos de Gimnasio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏋️ Máquina Expendedora Gym 💪</h1>
+        
+        <div class="vending-machine">
+            <div class="machine-header">
+                <div class="display">
+                    <p id="display-text">Selecciona un producto</p>
+                    <p id="display-price">Q0.00</p>
+                </div>
+                <div class="balance">
+                    <span>Balance: Q<span id="balance">0.00</span></span>
+                </div>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-slot" data-id="A1" data-name="Proteína Whey" data-price="45.00">
+                    <div class="product">
+                        <div class="product-image">🥛</div>
+                        <div class="product-info">
+                            <p class="product-name">Proteína Whey</p>
+                            <p class="product-price">Q45.00</p>
+                            <p class="product-code">A1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-slot" data-id="A2" data-name="Creatina" data-price="35.00">
+                    <div class="product">
+                        <div class="product-image">💊</div>
+                        <div class="product-info">
+                            <p class="product-name">Creatina</p>
+                            <p class="product-price">Q35.00</p>
+                            <p class="product-code">A2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-slot" data-id="A3" data-name="Barra Proteica" data-price="15.00">
+                    <div class="product">
+                        <div class="product-image">🍫</div>
+                        <div class="product-info">
+                            <p class="product-name">Barra Proteica</p>
+                            <p class="product-price">Q15.00</p>
+                            <p class="product-code">A3</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-slot" data-id="B1" data-name="BCAA" data-price="40.00">
+                    <div class="product">
+                        <div class="product-image">⚗️</div>
+                        <div class="product-info">
+                            <p class="product-name">BCAA</p>
+                            <p class="product-price">Q40.00</p>
+                            <p class="product-code">B1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-slot" data-id="B2" data-name="Pre-Workout" data-price="50.00">
+                    <div class="product">
+                        <div class="product-image">⚡</div>
+                        <div class="product-info">
+                            <p class="product-name">Pre-Workout</p>
+                            <p class="product-price">Q50.00</p>
+                            <p class="product-code">B2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-slot" data-id="B3" data-name="Shaker" data-price="20.00">
+                    <div class="product">
+                        <div class="product-image">🥤</div>
+                        <div class="product-info">
+                            <p class="product-name">Shaker</p>
+                            <p class="product-price">Q20.00</p>
+                            <p class="product-code">B3</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-slot" data-id="C1" data-name="Toalla Gym" data-price="12.00">
+                    <div class="product">
+                        <div class="product-image">🧺</div>
+                        <div class="product-info">
+                            <p class="product-name">Toalla Gym</p>
+                            <p class="product-price">Q12.00</p>
+                            <p class="product-code">C1</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-slot" data-id="C2" data-name="Guantes" data-price="25.00">
+                    <div class="product">
+                        <div class="product-image">🧤</div>
+                        <div class="product-info">
+                            <p class="product-name">Guantes</p>
+                            <p class="product-price">Q25.00</p>
+                            <p class="product-code">C2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-slot" data-id="C3" data-name="Bebida Isotónica" data-price="10.00">
+                    <div class="product">
+                        <div class="product-image">🥤</div>
+                        <div class="product-info">
+                            <p class="product-name">Isotónica</p>
+                            <p class="product-price">Q10.00</p>
+                            <p class="product-code">C3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dispenser">
+                <div class="dispenser-door">
+                    <div class="dispenser-window"></div>
+                </div>
+                <p class="dispenser-label">Retira tu producto aquí</p>
+            </div>
+
+            <div class="control-panel">
+                <div class="money-input">
+                    <button class="money-btn" data-amount="10">Q10</button>
+                    <button class="money-btn" data-amount="20">Q20</button>
+                    <button class="money-btn" data-amount="50">Q50</button>
+                    <button class="money-btn" data-amount="100">Q100</button>
+                </div>
+                <div class="action-buttons">
+                    <button id="buy-btn" class="action-btn buy">Comprar</button>
+                    <button id="return-btn" class="action-btn return">Devolver Dinero</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
