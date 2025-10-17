@@ -146,6 +146,10 @@ class VendingMachine {
         dispensedProduct.textContent = productEmoji;
         dispenserWindow.appendChild(dispensedProduct);
 
+        // Encender luz del ducto y vibrar la máquina
+        this.startRumble();
+        this.setChuteActive(true);
+
         // Abrir puerta y dispensar
         await this.sleep(500);
         dispenserDoor.classList.add('open');
@@ -155,6 +159,10 @@ class VendingMachine {
         
         await this.sleep(500);
         dispensedProduct.remove();
+
+        // Apagar luz y detener vibración
+        this.setChuteActive(false);
+        this.stopRumble();
     }
 
     returnMoney() {
@@ -190,6 +198,21 @@ class VendingMachine {
 
     sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    startRumble() {
+        const vm = document.querySelector('.vending-machine');
+        if (vm) vm.classList.add('machine-rumble');
+    }
+
+    stopRumble() {
+        const vm = document.querySelector('.vending-machine');
+        if (vm) vm.classList.remove('machine-rumble');
+    }
+
+    setChuteActive(active) {
+        const windowEl = document.querySelector('.dispenser-window');
+        if (windowEl) windowEl.classList.toggle('active', !!active);
     }
 }
 
