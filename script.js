@@ -3,6 +3,7 @@ class VendingMachine {
         this.balance = 0;
         this.selectedProduct = null;
         this.init();
+        this.setupBillAcceptor(); // Crea la ranura de billetes en la máquina
     }
 
     init() {
@@ -58,6 +59,7 @@ class VendingMachine {
         
         // Animación de inserción de dinero
         this.animateMoneyInsert();
+        this.animateBillInsert(amount); // Animación visual del billete
     }
 
     animateMoneyInsert() {
@@ -66,6 +68,31 @@ class VendingMachine {
         setTimeout(() => {
             balanceElement.style.animation = 'pulse 0.5s ease';
         }, 10);
+    }
+
+    setupBillAcceptor() {
+        const machine = document.querySelector('.vending-machine');
+        if (!machine || document.querySelector('.bill-acceptor')) return;
+        const acceptor = document.createElement('div');
+        acceptor.className = 'bill-acceptor';
+        acceptor.innerHTML = '<div class="bill-slot" aria-hidden="true"></div>';
+        machine.appendChild(acceptor);
+        this.billAcceptorEl = acceptor;
+    }
+
+    animateBillInsert(amount) {
+        const acceptor = this.billAcceptorEl || document.querySelector('.bill-acceptor');
+        if (!acceptor) return;
+        const bill = document.createElement('div');
+        bill.className = 'bill';
+        bill.textContent = `Q${Number.isInteger(amount) ? amount : amount.toFixed(0)}`;
+        acceptor.appendChild(bill);
+
+        acceptor.classList.add('active');
+        bill.addEventListener('animationend', () => {
+            bill.remove();
+        });
+        setTimeout(() => acceptor.classList.remove('active'), 700);
     }
 
     updateDisplay(text, price) {
